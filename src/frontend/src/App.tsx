@@ -269,13 +269,13 @@ export default function App() {
             className="flex items-center gap-2 group"
             data-ocid="nav.home_link"
           >
-            <div className="w-9 h-9 rounded-full bg-navy flex items-center justify-center flex-shrink-0 shadow">
-              <Camera className="w-5 h-5 text-gold" />
+            <div className="w-9 h-9 rounded-full bg-primary flex items-center justify-center flex-shrink-0 shadow">
+              <Camera className="w-5 h-5 text-yellow-400" />
             </div>
-            <span className="font-bold text-navy text-sm sm:text-base leading-tight hidden sm:block">
+            <span className="font-bold text-primary text-sm sm:text-base leading-tight hidden sm:block">
               Quad City
               <br />
-              <span className="text-teal font-extrabold tracking-wide">
+              <span className="text-accent font-extrabold tracking-wide">
                 Photo Booth
               </span>
             </span>
@@ -291,7 +291,7 @@ export default function App() {
                 type="button"
                 key={link.label}
                 onClick={() => scrollTo(link.href.slice(1))}
-                className="text-sm font-semibold text-foreground hover:text-teal transition-colors uppercase tracking-wide"
+                className="text-sm font-semibold text-foreground hover:text-accent transition-colors uppercase tracking-wide"
                 data-ocid={`nav.${link.label.toLowerCase().replace(/\s+/g, "-")}_link`}
               >
                 {link.label}
@@ -303,14 +303,14 @@ export default function App() {
           <div className="flex items-center gap-3">
             <Button
               onClick={() => scrollTo("contact")}
-              className="hidden sm:flex bg-navy hover:bg-navy-light text-white font-bold uppercase tracking-widest rounded-full px-6 py-2 text-sm shadow transition-all"
+              className="hidden sm:flex bg-primary hover:bg-primary/90 text-white font-bold uppercase tracking-widest rounded-full px-6 py-2 text-sm shadow transition-all"
               data-ocid="nav.book_now_button"
             >
               Book Now
             </Button>
             <button
               type="button"
-              className="lg:hidden p-2 rounded-md text-navy"
+              className="lg:hidden p-2 rounded-md text-primary"
               onClick={() => setMenuOpen((v) => !v)}
               aria-label="Toggle menu"
               data-ocid="nav.hamburger_button"
@@ -339,14 +339,14 @@ export default function App() {
                   type="button"
                   key={link.label}
                   onClick={() => scrollTo(link.href.slice(1))}
-                  className="text-left text-base font-semibold text-foreground hover:text-teal py-2 uppercase tracking-wide"
+                  className="text-left text-base font-semibold text-foreground hover:text-accent py-2 uppercase tracking-wide"
                 >
                   {link.label}
                 </button>
               ))}
               <Button
                 onClick={() => scrollTo("contact")}
-                className="bg-navy text-white rounded-full font-bold uppercase tracking-widest mt-2"
+                className="bg-primary text-white rounded-full font-bold uppercase tracking-widest mt-2"
               >
                 Book Now
               </Button>
@@ -366,13 +366,13 @@ export default function App() {
           alt="Event celebration at venue"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-navy-dark/80 via-navy-dark/60 to-navy-dark/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/90 via-primary/70 to-accent/60" />
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-gold font-bold uppercase tracking-[0.3em] text-sm mb-4"
+            className="text-yellow-300 font-bold uppercase tracking-[0.3em] text-sm mb-4"
           >
             Quad Cities Premier Photo Booth Rental
           </motion.p>
@@ -384,7 +384,7 @@ export default function App() {
           >
             Capture Your
             <br />
-            <span className="text-gold">Perfect Moment</span>
+            <span className="text-yellow-300">Perfect Moment</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
@@ -403,14 +403,14 @@ export default function App() {
           >
             <Button
               onClick={() => scrollTo("services")}
-              className="bg-navy hover:bg-navy-light text-white font-bold uppercase tracking-widest px-8 py-3 text-base rounded-full shadow-lg transition-all"
+              className="bg-primary hover:bg-primary/90 text-white font-bold uppercase tracking-widest px-8 py-3 text-base rounded-full shadow-lg transition-all"
               data-ocid="hero.view_packages_button"
             >
               View Packages
             </Button>
             <Button
               onClick={() => scrollTo("contact")}
-              className="bg-teal hover:bg-teal-light text-white font-bold uppercase tracking-widest px-8 py-3 text-base rounded-full shadow-lg transition-all"
+              className="bg-accent hover:bg-accent/90 text-white font-bold uppercase tracking-widest px-8 py-3 text-base rounded-full shadow-lg transition-all"
               data-ocid="hero.get_quote_button"
             >
               Get a Quote
@@ -420,7 +420,7 @@ export default function App() {
         <button
           type="button"
           onClick={() => scrollTo("how-it-works")}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60 hover:text-gold transition-colors animate-bounce"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60 hover:text-yellow-300 transition-colors animate-bounce"
           aria-label="Scroll down"
         >
           <ChevronDown className="w-8 h-8" />
@@ -435,13 +435,13 @@ export default function App() {
       >
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
-            <p className="text-teal font-bold uppercase tracking-[0.25em] text-sm mb-3">
+            <p className="text-accent font-bold uppercase tracking-[0.25em] text-sm mb-3">
               Simple Process
             </p>
-            <h2 className="text-4xl sm:text-5xl font-black uppercase text-navy tracking-tight">
+            <h2 className="text-4xl sm:text-5xl font-black uppercase text-primary tracking-tight">
               How It Works
             </h2>
-            <div className="w-16 h-1 bg-gold rounded-full mx-auto mt-4" />
+            <div className="w-16 h-1 bg-yellow-400 rounded-full mx-auto mt-4" />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {HOW_IT_WORKS.map((step, i) => (
@@ -454,15 +454,15 @@ export default function App() {
                 className="flex flex-col items-center text-center group"
                 data-ocid={`how_it_works.item.${i + 1}`}
               >
-                <div className="w-20 h-20 rounded-full bg-muted flex items-center justify-center mb-4 group-hover:bg-navy transition-colors shadow-card">
-                  <div className="text-navy group-hover:text-gold transition-colors">
+                <div className="w-20 h-20 rounded-full bg-muted flex items-center justify-center mb-4 group-hover:bg-primary transition-colors shadow-md">
+                  <div className="text-primary group-hover:text-yellow-300 transition-colors">
                     {step.icon}
                   </div>
                 </div>
-                <span className="text-gold font-black text-3xl mb-2">
+                <span className="text-yellow-500 font-black text-3xl mb-2">
                   {step.step}
                 </span>
-                <h3 className="font-bold text-navy uppercase tracking-wide text-base mb-2">
+                <h3 className="font-bold text-primary uppercase tracking-wide text-base mb-2">
                   {step.title}
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
@@ -477,18 +477,18 @@ export default function App() {
       {/* ── SERVICES & PACKAGES ── */}
       <section
         id="services"
-        className="py-20 bg-section-bg"
+        className="py-20 bg-muted"
         data-ocid="services.section"
       >
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
-            <p className="text-teal font-bold uppercase tracking-[0.25em] text-sm mb-3">
+            <p className="text-accent font-bold uppercase tracking-[0.25em] text-sm mb-3">
               Choose Your Package
             </p>
-            <h2 className="text-4xl sm:text-5xl font-black uppercase text-navy tracking-tight">
+            <h2 className="text-4xl sm:text-5xl font-black uppercase text-primary tracking-tight">
               Services & Packages
             </h2>
-            <div className="w-16 h-1 bg-gold rounded-full mx-auto mt-4" />
+            <div className="w-16 h-1 bg-yellow-400 rounded-full mx-auto mt-4" />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {PACKAGES.map((pkg, i) => (
@@ -498,21 +498,21 @@ export default function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.12 }}
-                className={`relative bg-white rounded-2xl shadow-card hover:shadow-card-hover transition-all flex flex-col ${
-                  pkg.featured ? "ring-2 ring-gold scale-105" : ""
+                className={`relative bg-white rounded-2xl shadow-md hover:shadow-lg transition-all flex flex-col ${
+                  pkg.featured ? "ring-2 ring-yellow-400 scale-105" : ""
                 }`}
                 data-ocid={`services.item.${i + 1}`}
               >
                 {pkg.featured && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gold text-navy-dark font-black uppercase tracking-widest text-xs px-5 py-1.5 rounded-full shadow">
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-yellow-400 text-primary font-black uppercase tracking-widest text-xs px-5 py-1.5 rounded-full shadow">
                     Most Popular
                   </div>
                 )}
                 <div
-                  className={`rounded-t-2xl px-8 py-8 ${pkg.featured ? "bg-navy" : "bg-muted"}`}
+                  className={`rounded-t-2xl px-8 py-8 ${pkg.featured ? "bg-primary" : "bg-muted"}`}
                 >
                   <h3
-                    className={`font-black uppercase tracking-wide text-xl mb-1 ${pkg.featured ? "text-gold" : "text-navy"}`}
+                    className={`font-black uppercase tracking-wide text-xl mb-1 ${pkg.featured ? "text-yellow-300" : "text-primary"}`}
                   >
                     {pkg.name}
                   </h3>
@@ -522,7 +522,7 @@ export default function App() {
                     {pkg.duration}
                   </p>
                   <div
-                    className={`text-4xl font-black ${pkg.featured ? "text-white" : "text-navy"}`}
+                    className={`text-4xl font-black ${pkg.featured ? "text-white" : "text-primary"}`}
                   >
                     {pkg.price}
                     <span
@@ -539,7 +539,7 @@ export default function App() {
                         key={f}
                         className="flex items-center gap-3 text-sm text-foreground"
                       >
-                        <Star className="w-4 h-4 text-gold flex-shrink-0 fill-gold" />
+                        <Star className="w-4 h-4 text-yellow-400 flex-shrink-0 fill-yellow-400" />
                         {f}
                       </li>
                     ))}
@@ -548,8 +548,8 @@ export default function App() {
                     onClick={() => scrollTo("contact")}
                     className={`w-full font-bold uppercase tracking-widest rounded-full py-3 transition-all ${
                       pkg.featured
-                        ? "bg-gold hover:bg-gold/90 text-navy-dark"
-                        : "bg-navy hover:bg-navy-light text-white"
+                        ? "bg-yellow-400 hover:bg-yellow-400/90 text-primary"
+                        : "bg-primary hover:bg-primary/90 text-white"
                     }`}
                     data-ocid={`services.book_now_button.${i + 1}`}
                   >
@@ -570,13 +570,13 @@ export default function App() {
       >
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
-            <p className="text-teal font-bold uppercase tracking-[0.25em] text-sm mb-3">
+            <p className="text-accent font-bold uppercase tracking-[0.25em] text-sm mb-3">
               Our Work
             </p>
-            <h2 className="text-4xl sm:text-5xl font-black uppercase text-navy tracking-tight">
+            <h2 className="text-4xl sm:text-5xl font-black uppercase text-primary tracking-tight">
               Our Gallery
             </h2>
-            <div className="w-16 h-1 bg-gold rounded-full mx-auto mt-4" />
+            <div className="w-16 h-1 bg-yellow-400 rounded-full mx-auto mt-4" />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {GALLERY.map((item, i) => (
@@ -586,7 +586,7 @@ export default function App() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group relative overflow-hidden rounded-2xl shadow-card cursor-pointer"
+                className="group relative overflow-hidden rounded-2xl shadow-md cursor-pointer"
                 data-ocid={`gallery.item.${i + 1}`}
               >
                 <img
@@ -595,7 +595,7 @@ export default function App() {
                   className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-dark/80 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-5">
                   <span className="text-white font-bold uppercase tracking-widest text-sm">
                     {item.label}
@@ -610,18 +610,18 @@ export default function App() {
       {/* ── CONTACT / BOOKING ── */}
       <section
         id="contact"
-        className="py-20 bg-section-bg"
+        className="py-20 bg-muted"
         data-ocid="contact.section"
       >
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
-            <p className="text-teal font-bold uppercase tracking-[0.25em] text-sm mb-3">
+            <p className="text-accent font-bold uppercase tracking-[0.25em] text-sm mb-3">
               Get In Touch
             </p>
-            <h2 className="text-4xl sm:text-5xl font-black uppercase text-navy tracking-tight">
+            <h2 className="text-4xl sm:text-5xl font-black uppercase text-primary tracking-tight">
               Ready to Book?
             </h2>
-            <div className="w-16 h-1 bg-gold rounded-full mx-auto mt-4" />
+            <div className="w-16 h-1 bg-yellow-400 rounded-full mx-auto mt-4" />
             <p className="text-muted-foreground mt-4 max-w-xl mx-auto">
               Fill out the form below and our team will be in touch within 24
               hours to confirm your booking.
@@ -634,7 +634,7 @@ export default function App() {
               className="flex flex-col gap-6"
               data-ocid="contact.testimonials_panel"
             >
-              <h3 className="font-black text-navy uppercase tracking-widest text-sm mb-2">
+              <h3 className="font-black text-primary uppercase tracking-widest text-sm mb-2">
                 What Our Clients Say
               </h3>
               {TESTIMONIALS.map((t) => (
@@ -644,21 +644,21 @@ export default function App() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.15 }}
-                  className="bg-white rounded-2xl p-6 shadow-card"
+                  className="bg-white rounded-2xl p-6 shadow-md"
                   data-ocid="contact.testimonial.1"
                 >
                   <div className="flex gap-1 mb-3">
-                    <Star className="w-4 h-4 text-gold fill-gold" />
-                    <Star className="w-4 h-4 text-gold fill-gold" />
-                    <Star className="w-4 h-4 text-gold fill-gold" />
-                    <Star className="w-4 h-4 text-gold fill-gold" />
-                    <Star className="w-4 h-4 text-gold fill-gold" />
+                    <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                    <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                    <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                    <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                    <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
                   </div>
                   <p className="text-foreground text-sm leading-relaxed italic mb-4">
                     &ldquo;{t.quote}&rdquo;
                   </p>
                   <div>
-                    <p className="font-bold text-navy text-sm">{t.author}</p>
+                    <p className="font-bold text-primary text-sm">{t.author}</p>
                     <p className="text-muted-foreground text-xs">{t.event}</p>
                   </div>
                 </motion.div>
@@ -667,7 +667,7 @@ export default function App() {
 
             {/* Form */}
             <div className="lg:col-span-1" data-ocid="contact.form_panel">
-              <div className="bg-white rounded-2xl shadow-card p-8">
+              <div className="bg-white rounded-2xl shadow-md p-8">
                 <AnimatePresence mode="wait">
                   {submitted ? (
                     <motion.div
@@ -677,10 +677,10 @@ export default function App() {
                       className="text-center py-12"
                       data-ocid="contact.success_state"
                     >
-                      <div className="w-16 h-16 bg-teal/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <PartyPopper className="w-8 h-8 text-teal" />
+                      <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <PartyPopper className="w-8 h-8 text-accent" />
                       </div>
-                      <h3 className="font-black text-navy text-xl uppercase mb-2">
+                      <h3 className="font-black text-primary text-xl uppercase mb-2">
                         Inquiry Received!
                       </h3>
                       <p className="text-muted-foreground text-sm">
@@ -689,7 +689,7 @@ export default function App() {
                       </p>
                       <Button
                         onClick={() => setSubmitted(false)}
-                        className="mt-6 bg-navy text-white rounded-full font-bold uppercase tracking-widest"
+                        className="mt-6 bg-primary text-white rounded-full font-bold uppercase tracking-widest"
                       >
                         Submit Another
                       </Button>
@@ -703,7 +703,7 @@ export default function App() {
                       className="space-y-4"
                       data-ocid="contact.inquiry_form"
                     >
-                      <h3 className="font-black text-navy uppercase tracking-wide text-lg mb-6">
+                      <h3 className="font-black text-primary uppercase tracking-wide text-lg mb-6">
                         Send an Inquiry
                       </h3>
                       <div className="space-y-1">
@@ -850,7 +850,7 @@ export default function App() {
                       <Button
                         type="submit"
                         disabled={submitInquiry.isPending}
-                        className="w-full bg-navy hover:bg-navy-light text-white font-black uppercase tracking-widest rounded-full py-3 text-sm transition-all"
+                        className="w-full bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-widest rounded-full py-3 text-sm transition-all"
                         data-ocid="contact.submit_button"
                       >
                         {submitInquiry.isPending
@@ -865,13 +865,13 @@ export default function App() {
 
             {/* Contact Info */}
             <div className="flex flex-col gap-6" data-ocid="contact.info_panel">
-              <h3 className="font-black text-navy uppercase tracking-widest text-sm mb-2">
+              <h3 className="font-black text-primary uppercase tracking-widest text-sm mb-2">
                 Contact Information
               </h3>
-              <div className="bg-white rounded-2xl shadow-card p-6 flex flex-col gap-5">
+              <div className="bg-white rounded-2xl shadow-md p-6 flex flex-col gap-5">
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-navy/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-5 h-5 text-navy" />
+                  <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-5 h-5 text-primary" />
                   </div>
                   <div>
                     <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-0.5">
@@ -879,15 +879,15 @@ export default function App() {
                     </p>
                     <a
                       href="tel:+15635083418"
-                      className="font-bold text-navy hover:text-teal transition-colors"
+                      className="font-bold text-primary hover:text-accent transition-colors"
                     >
                       (563) 508-3418
                     </a>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-navy/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-5 h-5 text-navy" />
+                  <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-5 h-5 text-primary" />
                   </div>
                   <div>
                     <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-0.5">
@@ -895,29 +895,29 @@ export default function App() {
                     </p>
                     <a
                       href="mailto:Kevin@qcphotobooth.com"
-                      className="font-bold text-navy hover:text-teal transition-colors text-sm"
+                      className="font-bold text-primary hover:text-accent transition-colors text-sm"
                     >
                       Kevin@qcphotobooth.com
                     </a>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-navy/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-5 h-5 text-navy" />
+                  <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-5 h-5 text-primary" />
                   </div>
                   <div>
                     <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-0.5">
                       Location
                     </p>
-                    <p className="font-bold text-navy">Bettendorf, Iowa</p>
+                    <p className="font-bold text-primary">Bettendorf, Iowa</p>
                     <p className="text-sm text-muted-foreground">
                       Serving the Quad Cities Area
                     </p>
                   </div>
                 </div>
               </div>
-              <div className="bg-navy rounded-2xl p-6 text-white">
-                <p className="font-black uppercase tracking-widest text-gold text-xs mb-3">
+              <div className="bg-primary rounded-2xl p-6 text-white">
+                <p className="font-black uppercase tracking-widest text-yellow-300 text-xs mb-3">
                   Service Area
                 </p>
                 <p className="font-bold text-lg mb-1">Quad Cities</p>
@@ -934,20 +934,22 @@ export default function App() {
       </section>
 
       {/* ── FOOTER ── */}
-      <footer className="bg-navy-footer text-white" data-ocid="footer.section">
+      <footer className="bg-primary text-white" data-ocid="footer.section">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
             {/* Brand */}
             <div className="lg:col-span-1">
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center">
-                  <Camera className="w-5 h-5 text-gold" />
+                <div className="w-10 h-10 rounded-full bg-yellow-400/20 flex items-center justify-center">
+                  <Camera className="w-5 h-5 text-yellow-400" />
                 </div>
                 <div>
                   <p className="font-black text-white text-sm leading-tight">
                     Quad City
                   </p>
-                  <p className="font-black text-gold text-sm">Photo Booth</p>
+                  <p className="font-black text-yellow-300 text-sm">
+                    Photo Booth
+                  </p>
                 </div>
               </div>
               <p className="text-white/60 text-sm leading-relaxed mb-5">
@@ -957,7 +959,7 @@ export default function App() {
               <div className="flex gap-3">
                 <a
                   href="https://www.facebook.com"
-                  className="w-9 h-9 rounded-full bg-white/10 hover:bg-gold transition-colors flex items-center justify-center"
+                  className="w-9 h-9 rounded-full bg-white/10 hover:bg-yellow-400 transition-colors flex items-center justify-center"
                   aria-label="Facebook"
                   data-ocid="footer.facebook_link"
                 >
@@ -965,7 +967,7 @@ export default function App() {
                 </a>
                 <a
                   href="https://www.instagram.com"
-                  className="w-9 h-9 rounded-full bg-white/10 hover:bg-gold transition-colors flex items-center justify-center"
+                  className="w-9 h-9 rounded-full bg-white/10 hover:bg-yellow-400 transition-colors flex items-center justify-center"
                   aria-label="Instagram"
                   data-ocid="footer.instagram_link"
                 >
@@ -976,7 +978,7 @@ export default function App() {
 
             {/* Quick Links */}
             <div>
-              <h4 className="font-black uppercase tracking-widest text-gold text-xs mb-5">
+              <h4 className="font-black uppercase tracking-widest text-yellow-300 text-xs mb-5">
                 Quick Links
               </h4>
               <ul className="space-y-2.5">
@@ -997,7 +999,7 @@ export default function App() {
 
             {/* Services */}
             <div>
-              <h4 className="font-black uppercase tracking-widest text-gold text-xs mb-5">
+              <h4 className="font-black uppercase tracking-widest text-yellow-300 text-xs mb-5">
                 Services
               </h4>
               <ul className="space-y-2.5">
@@ -1022,12 +1024,12 @@ export default function App() {
 
             {/* Contact */}
             <div>
-              <h4 className="font-black uppercase tracking-widest text-gold text-xs mb-5">
+              <h4 className="font-black uppercase tracking-widest text-yellow-300 text-xs mb-5">
                 Contact Us
               </h4>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
-                  <Phone className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" />
+                  <Phone className="w-4 h-4 text-yellow-300 mt-0.5 flex-shrink-0" />
                   <a
                     href="tel:+15635083418"
                     className="text-white/70 hover:text-white text-sm transition-colors"
@@ -1036,7 +1038,7 @@ export default function App() {
                   </a>
                 </li>
                 <li className="flex items-start gap-3">
-                  <Mail className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" />
+                  <Mail className="w-4 h-4 text-yellow-300 mt-0.5 flex-shrink-0" />
                   <a
                     href="mailto:Kevin@qcphotobooth.com"
                     className="text-white/70 hover:text-white text-sm transition-colors break-all"
@@ -1045,7 +1047,7 @@ export default function App() {
                   </a>
                 </li>
                 <li className="flex items-start gap-3">
-                  <MapPin className="w-4 h-4 text-gold mt-0.5 flex-shrink-0" />
+                  <MapPin className="w-4 h-4 text-yellow-300 mt-0.5 flex-shrink-0" />
                   <span className="text-white/70 text-sm">
                     Bettendorf, Iowa
                     <br />

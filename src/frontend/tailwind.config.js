@@ -15,10 +15,6 @@ export default {
       },
     },
     extend: {
-      fontFamily: {
-        sans: ["Montserrat", "sans-serif"],
-        display: ["Montserrat", "sans-serif"],
-      },
       colors: {
         border: "oklch(var(--border))",
         input: "oklch(var(--input))",
@@ -70,21 +66,6 @@ export default {
           border: "oklch(var(--sidebar-border))",
           ring: "oklch(var(--sidebar-ring))",
         },
-        navy: {
-          DEFAULT: "oklch(0.37 0.085 220)",
-          light: "oklch(0.45 0.08 220)",
-          dark: "oklch(0.22 0.06 225)",
-          footer: "oklch(0.20 0.05 225)",
-        },
-        teal: {
-          DEFAULT: "oklch(0.64 0.10 190)",
-          light: "oklch(0.72 0.09 190)",
-        },
-        gold: {
-          DEFAULT: "oklch(0.76 0.11 82)",
-          light: "oklch(0.85 0.09 82)",
-        },
-        "section-bg": "oklch(0.96 0.012 220)",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -93,8 +74,8 @@ export default {
       },
       boxShadow: {
         xs: "0 1px 2px 0 rgba(0,0,0,0.05)",
-        card: "0 4px 20px rgba(31,79,111,0.12)",
-        "card-hover": "0 8px 32px rgba(31,79,111,0.20)",
+        card: "0 4px 20px rgba(0,0,0,0.08)",
+        "card-hover": "0 8px 32px rgba(0,0,0,0.14)",
       },
       keyframes: {
         "accordion-down": {
