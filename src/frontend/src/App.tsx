@@ -49,7 +49,7 @@ const navLinks = [
 const booths = [
   {
     name: "Classic Booth",
-    image: "/assets/generated/classic-booth.dim_800x600.jpg",
+    image: "/assets/generated/classic-booth-open-air.dim_800x600.jpg",
     icon: Camera,
     description: "The timeless photo booth experience your guests will love.",
     features: [
@@ -236,7 +236,7 @@ export default function App() {
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <button
             type="button"
-            className="flex items-center gap-2 cursor-pointer"
+            className="flex items-center gap-2 cursor-pointer bg-transparent border-none outline-none p-0"
             onClick={() => handleNavClick("#hero")}
             data-ocid="nav.link"
           >
@@ -605,11 +605,12 @@ export default function App() {
                       </Badge>
                     )}
                     <CardTitle className="font-display">{pkg.name}</CardTitle>
-                    <div className="text-3xl font-display font-bold text-foreground">
-                      {pkg.tiers[0].price}
-                      <span className="text-sm font-normal text-muted-foreground">
-                        {" "}
-                        starting
+                    <div>
+                      <span className="text-sm text-muted-foreground">
+                        Starting at{" "}
+                      </span>
+                      <span className="text-3xl font-display font-bold text-foreground">
+                        {pkg.tiers[0].price}
                       </span>
                     </div>
                   </CardHeader>
