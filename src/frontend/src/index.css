@@ -27,15 +27,15 @@
     --popover: 1 0 0;
     --popover-foreground: 0.15 0 0;
 
-    /* Primary = Deep Green */
-    --primary: 0.38 0.14 145;
+    /* Primary = Dark charcoal (not green) */
+    --primary: 0.15 0.01 260;
     --primary-foreground: 0.99 0 0;
 
     /* Secondary = Light gray */
     --secondary: 0.95 0 0;
     --secondary-foreground: 0.15 0 0;
 
-    --muted: 0.97 0.005 145;
+    --muted: 0.97 0 0;
     --muted-foreground: 0.5 0 0;
 
     /* Accent = Lime/Chartreuse Green (from logo) */
@@ -45,9 +45,9 @@
     --destructive: 0.58 0.24 25;
     --destructive-foreground: 0.99 0 0;
 
-    --border: 0.92 0.005 145;
-    --input: 0.92 0.005 145;
-    --ring: 0.55 0.15 145;
+    --border: 0.92 0 0;
+    --input: 0.92 0 0;
+    --ring: 0.82 0.19 110;
 
     --chart-1: 0.646 0.222 41.116;
     --chart-2: 0.6 0.118 184.704;
@@ -57,12 +57,12 @@
 
     --sidebar: 0.985 0 0;
     --sidebar-foreground: 0.15 0 0;
-    --sidebar-primary: 0.38 0.14 145;
+    --sidebar-primary: 0.15 0.01 260;
     --sidebar-primary-foreground: 0.99 0 0;
     --sidebar-accent: 0.96 0 0;
     --sidebar-accent-foreground: 0.15 0 0;
     --sidebar-border: 0.9 0 0;
-    --sidebar-ring: 0.55 0.15 145;
+    --sidebar-ring: 0.82 0.19 110;
   }
 
   * {

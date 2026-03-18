@@ -229,9 +229,7 @@ export default function App() {
       {/* Header */}
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "bg-background/95 backdrop-blur-md shadow-md"
-            : "bg-transparent"
+          scrolled ? "bg-white/95 backdrop-blur-md shadow-md" : "bg-transparent"
         }`}
         data-ocid="header.panel"
       >
@@ -297,7 +295,7 @@ export default function App() {
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              className="md:hidden bg-background/98 backdrop-blur-md border-b overflow-hidden"
+              className="md:hidden bg-white/98 backdrop-blur-md border-b overflow-hidden"
             >
               <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
                 {navLinks.map((link) => (
@@ -334,7 +332,7 @@ export default function App() {
           alt="Hero background"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/70 to-accent/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/60" />
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4 pt-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -358,7 +356,7 @@ export default function App() {
             <div className="flex flex-wrap gap-4 justify-center mb-14">
               <Button
                 size="lg"
-                className="bg-white text-primary hover:bg-white/90 rounded-full font-semibold px-8"
+                className="bg-white text-foreground hover:bg-white/90 rounded-full font-semibold px-8"
                 onClick={() => handleNavClick("#booths")}
                 data-ocid="hero.primary_button"
               >
@@ -434,8 +432,8 @@ export default function App() {
                     </Badge>
                   </div>
                   <CardHeader>
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mb-2">
-                      <booth.icon className="w-5 h-5 text-primary" />
+                    <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center mb-2">
+                      <booth.icon className="w-5 h-5 text-accent" />
                     </div>
                     <CardTitle className="font-display">{booth.name}</CardTitle>
                     <CardDescription>{booth.description}</CardDescription>
@@ -521,7 +519,7 @@ export default function App() {
                   key={stat.label}
                   className="flex flex-col items-center justify-center p-6 text-center shadow-card"
                 >
-                  <div className="text-3xl font-display font-bold text-primary mb-1">
+                  <div className="text-3xl font-display font-bold text-foreground mb-1">
                     {stat.number}
                   </div>
                   <div className="text-sm text-muted-foreground">
@@ -597,17 +595,17 @@ export default function App() {
               >
                 <Card
                   className={`h-full flex flex-col shadow-card ${
-                    pkg.popular ? "ring-2 ring-primary" : ""
+                    pkg.popular ? "ring-2 ring-accent" : ""
                   }`}
                 >
                   <CardHeader>
                     {pkg.popular && (
-                      <Badge className="w-fit bg-primary text-primary-foreground mb-2">
+                      <Badge className="w-fit bg-accent text-accent-foreground mb-2">
                         Most Popular
                       </Badge>
                     )}
                     <CardTitle className="font-display">{pkg.name}</CardTitle>
-                    <div className="text-3xl font-display font-bold text-primary">
+                    <div className="text-3xl font-display font-bold text-foreground">
                       {pkg.tiers[0].price}
                       <span className="text-sm font-normal text-muted-foreground">
                         {" "}
@@ -826,8 +824,8 @@ export default function App() {
                     href="tel:5635083418"
                     className="flex items-center gap-4 group"
                   >
-                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                      <Phone className="w-5 h-5 text-primary" />
+                    <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                      <Phone className="w-5 h-5 text-accent" />
                     </div>
                     <div>
                       <div className="font-semibold">Phone</div>
@@ -838,8 +836,8 @@ export default function App() {
                     href="mailto:Kevin@qcphotobooth.com"
                     className="flex items-center gap-4 group"
                   >
-                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                      <Mail className="w-5 h-5 text-primary" />
+                    <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                      <Mail className="w-5 h-5 text-accent" />
                     </div>
                     <div>
                       <div className="font-semibold">Email</div>
@@ -849,8 +847,8 @@ export default function App() {
                     </div>
                   </a>
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                      <MapPin className="w-5 h-5 text-primary" />
+                    <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">
+                      <MapPin className="w-5 h-5 text-accent" />
                     </div>
                     <div>
                       <div className="font-semibold">Location</div>
@@ -869,7 +867,7 @@ export default function App() {
                     href="https://facebook.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                    className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-colors"
                     data-ocid="contact.link"
                   >
                     <SiFacebook className="w-5 h-5" />
@@ -878,7 +876,7 @@ export default function App() {
                     href="https://instagram.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-colors"
+                    className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-colors"
                     data-ocid="contact.link"
                   >
                     <SiInstagram className="w-5 h-5" />
@@ -886,12 +884,12 @@ export default function App() {
                 </div>
               </div>
 
-              <Card className="bg-primary text-primary-foreground shadow-glow">
+              <Card className="bg-accent text-accent-foreground shadow-glow">
                 <CardContent className="pt-6">
                   <h4 className="font-display font-bold text-lg mb-2">
                     Ready to Book?
                   </h4>
-                  <p className="text-primary-foreground/80 text-sm mb-4">
+                  <p className="text-accent-foreground/80 text-sm mb-4">
                     Contact us today to check availability for your event date.
                     We book up fast!
                   </p>
@@ -931,7 +929,7 @@ export default function App() {
                   href="https://facebook.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                  className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-colors"
                   data-ocid="footer.link"
                 >
                   <SiFacebook className="w-4 h-4" />
@@ -940,7 +938,7 @@ export default function App() {
                   href="https://instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-colors"
+                  className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-colors"
                   data-ocid="footer.link"
                 >
                   <SiInstagram className="w-4 h-4" />
