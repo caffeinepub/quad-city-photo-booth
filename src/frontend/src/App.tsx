@@ -36,7 +36,8 @@ import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { SiFacebook, SiInstagram } from "react-icons/si";
 import { toast } from "sonner";
-import { type EventType, useSubmitInquiry } from "./hooks/useQueries";
+
+type EventType = "Wedding" | "Corporate" | "Birthday" | "Prom" | "Other";
 
 const navLinks = [
   { label: "Home", href: "#hero" },
@@ -180,8 +181,6 @@ export default function App() {
     message: "",
   });
 
-  const submitInquiry = useSubmitInquiry();
-
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll);
@@ -193,33 +192,26 @@ export default function App() {
     document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.eventType) {
       toast.error("Please fill in all required fields.");
       return;
     }
-    try {
-      await submitInquiry.mutateAsync({
-        name: form.name,
-        email: form.email,
-        eventDate: form.eventDate,
-        eventType: form.eventType as EventType,
-        guests: Number(form.guests) || 0,
-        message: form.message,
-      });
-      toast.success("Inquiry sent! We'll be in touch soon.");
-      setForm({
-        name: "",
-        email: "",
-        eventDate: "",
-        guests: "",
-        eventType: "",
-        message: "",
-      });
-    } catch {
-      toast.error("Failed to send inquiry. Please try again.");
-    }
+    const subject = encodeURIComponent(`Photo Booth Inquiry from ${form.name}`);
+    const body = encodeURIComponent(
+      `Name: ${form.name}\nEmail: ${form.email}\nEvent Date: ${form.eventDate || "Not specified"}\nEvent Type: ${form.eventType}\nEstimated Guests: ${form.guests || "Not specified"}\nMessage: ${form.message || "No message provided"}`,
+    );
+    window.location.href = `mailto:kevin@qcphotobooth.com?subject=${subject}&body=${body}`;
+    toast.success("Opening your email client to send your inquiry!");
+    setForm({
+      name: "",
+      email: "",
+      eventDate: "",
+      guests: "",
+      eventType: "",
+      message: "",
+    });
   };
 
   return (
@@ -798,10 +790,9 @@ export default function App() {
                     <Button
                       type="submit"
                       className="w-full rounded-full bg-accent hover:bg-accent/90 text-accent-foreground"
-                      disabled={submitInquiry.isPending}
                       data-ocid="contact.submit_button"
                     >
-                      {submitInquiry.isPending ? "Sending..." : "Send Inquiry"}
+                      Send Inquiry
                     </Button>
                   </form>
                 </CardContent>
@@ -834,7 +825,7 @@ export default function App() {
                     </div>
                   </a>
                   <a
-                    href="mailto:Kevin@qcphotobooth.com"
+                    href="mailto:kevin@qcphotobooth.com"
                     className="flex items-center gap-4 group"
                   >
                     <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
@@ -843,7 +834,7 @@ export default function App() {
                     <div>
                       <div className="font-semibold">Email</div>
                       <div className="text-muted-foreground">
-                        Kevin@qcphotobooth.com
+                        kevin@qcphotobooth.com
                       </div>
                     </div>
                   </a>
@@ -997,7 +988,7 @@ export default function App() {
                 </li>
                 <li className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Mail className="w-4 h-4" />
-                  Kevin@qcphotobooth.com
+                  kevin@qcphotobooth.com
                 </li>
                 <li className="flex items-center gap-2 text-sm text-muted-foreground">
                   <MapPin className="w-4 h-4" />
