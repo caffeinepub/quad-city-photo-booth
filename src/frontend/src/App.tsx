@@ -170,7 +170,7 @@ const portfolioStats = [
 ];
 
 export default function App() {
-  const [scrolled, setScrolled] = useState(false);
+  const [_scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [form, setForm] = useState({
     name: "",
@@ -220,9 +220,7 @@ export default function App() {
 
       {/* Header */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? "bg-white/95 backdrop-blur-md shadow-md" : "bg-transparent"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${"bg-white/95 backdrop-blur-md shadow-md"}`}
         data-ocid="header.panel"
       >
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
