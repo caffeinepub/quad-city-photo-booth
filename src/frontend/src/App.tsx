@@ -202,7 +202,7 @@ export default function App() {
     const body = encodeURIComponent(
       `Name: ${form.name}\nEmail: ${form.email}\nEvent Date: ${form.eventDate || "Not specified"}\nEvent Type: ${form.eventType}\nEstimated Guests: ${form.guests || "Not specified"}\nMessage: ${form.message || "No message provided"}`,
     );
-    window.location.href = `mailto:kevin@qcphotobooth.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:kevin@masterdjonline.com?subject=${subject}&body=${body}`;
     toast.success("Opening your email client to send your inquiry!");
     setForm({
       name: "",
@@ -825,7 +825,7 @@ export default function App() {
                     </div>
                   </a>
                   <a
-                    href="mailto:kevin@qcphotobooth.com"
+                    href="mailto:kevin@masterdjonline.com"
                     className="flex items-center gap-4 group"
                   >
                     <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
@@ -834,7 +834,7 @@ export default function App() {
                     <div>
                       <div className="font-semibold">Email</div>
                       <div className="text-muted-foreground">
-                        kevin@qcphotobooth.com
+                        kevin@masterdjonline.com
                       </div>
                     </div>
                   </a>
@@ -988,7 +988,7 @@ export default function App() {
                 </li>
                 <li className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Mail className="w-4 h-4" />
-                  kevin@qcphotobooth.com
+                  kevin@masterdjonline.com
                 </li>
                 <li className="flex items-center gap-2 text-sm text-muted-foreground">
                   <MapPin className="w-4 h-4" />
