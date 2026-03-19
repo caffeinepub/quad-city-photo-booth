@@ -235,7 +235,7 @@ export default function App() {
             <img
               src="/assets/uploads/quadcity-green-1.png"
               alt="Quad City Booth Logo"
-              className="h-10 w-auto"
+              className="h-10 w-auto bg-transparent"
             />
           </button>
 
@@ -910,7 +910,7 @@ export default function App() {
                 <img
                   src="/assets/uploads/quadcity-green-1.png"
                   alt="Quad City Booth Logo"
-                  className="h-8 w-auto"
+                  className="h-8 w-auto bg-transparent"
                 />
               </div>
               <p className="text-muted-foreground text-sm mb-4">
