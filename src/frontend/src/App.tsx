@@ -8,17 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Toaster } from "@/components/ui/sonner";
-import { Textarea } from "@/components/ui/textarea";
 import {
   Camera,
   CheckCircle2,
@@ -35,16 +25,12 @@ import {
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { SiFacebook, SiInstagram } from "react-icons/si";
-import { toast } from "sonner";
-
-type EventType = "Wedding" | "Corporate" | "Birthday" | "Prom" | "Other";
 
 const navLinks = [
   { label: "Home", href: "#hero" },
   { label: "Booths", href: "#booths" },
   { label: "Gallery", href: "#portfolio" },
   { label: "Pricing", href: "#pricing" },
-  { label: "Contact", href: "#contact" },
 ];
 
 const booths = [
@@ -172,14 +158,6 @@ const portfolioStats = [
 export default function App() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    eventDate: "",
-    guests: "",
-    eventType: "" as EventType | "",
-    message: "",
-  });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -190,28 +168,6 @@ export default function App() {
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
     document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!form.name || !form.email || !form.eventType) {
-      toast.error("Please fill in all required fields.");
-      return;
-    }
-    const subject = encodeURIComponent(`Photo Booth Inquiry from ${form.name}`);
-    const body = encodeURIComponent(
-      `Name: ${form.name}\nEmail: ${form.email}\nEvent Date: ${form.eventDate || "Not specified"}\nEvent Type: ${form.eventType}\nEstimated Guests: ${form.guests || "Not specified"}\nMessage: ${form.message || "No message provided"}`,
-    );
-    window.location.href = `mailto:kevin@masterdjonline.com?subject=${subject}&body=${body}`;
-    toast.success("Opening your email client to send your inquiry!");
-    setForm({
-      name: "",
-      email: "",
-      eventDate: "",
-      guests: "",
-      eventType: "",
-      message: "",
-    });
   };
 
   return (
@@ -231,9 +187,9 @@ export default function App() {
             data-ocid="nav.link"
           >
             <img
-              src="/assets/uploads/quadcity-green-1.png"
+              src="/assets/uploads/quadcity-green-019d20ea-5b75-7125-899a-e48053916fed-1.png"
               alt="Quad City Booth Logo"
-              className="h-10 w-auto bg-transparent"
+              className="h-12 w-auto max-w-[200px] object-contain"
             />
           </button>
 
@@ -258,7 +214,7 @@ export default function App() {
           <div className="flex items-center gap-2">
             <Button
               className="hidden md:flex bg-accent hover:bg-accent/90 text-accent-foreground rounded-full"
-              onClick={() => handleNavClick("#contact")}
+              onClick={() => handleNavClick("#pricing")}
               data-ocid="nav.primary_button"
             >
               Book Now
@@ -301,7 +257,7 @@ export default function App() {
                 ))}
                 <Button
                   className="bg-accent text-accent-foreground rounded-full w-full"
-                  onClick={() => handleNavClick("#contact")}
+                  onClick={() => handleNavClick("#pricing")}
                   data-ocid="nav.primary_button"
                 >
                   Book Now
@@ -355,7 +311,7 @@ export default function App() {
               <Button
                 size="lg"
                 className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full font-semibold px-8"
-                onClick={() => handleNavClick("#contact")}
+                onClick={() => handleNavClick("#pricing")}
                 data-ocid="hero.secondary_button"
               >
                 Get a Quote
@@ -441,7 +397,7 @@ export default function App() {
                   <CardFooter>
                     <Button
                       className="w-full bg-accent hover:bg-accent/90 text-accent-foreground rounded-full"
-                      onClick={() => handleNavClick("#contact")}
+                      onClick={() => handleNavClick("#pricing")}
                       data-ocid={`booths.primary_button.${i + 1}`}
                     >
                       Book This Booth
@@ -465,7 +421,7 @@ export default function App() {
             className="text-center mb-12"
           >
             <h2 className="text-4xl font-display font-bold mb-4">
-              Our Work & Happy Clients
+              Our Work &amp; Happy Clients
             </h2>
             <p className="text-muted-foreground text-lg max-w-xl mx-auto">
               Real moments from real events across the Quad Cities.
@@ -635,13 +591,15 @@ export default function App() {
                     </p>
                   </CardContent>
                   <CardFooter>
-                    <Button
-                      className="w-full rounded-full bg-accent hover:bg-accent/90 text-accent-foreground"
-                      onClick={() => handleNavClick("#contact")}
+                    <a
+                      href="tel:5635083418"
+                      className="w-full"
                       data-ocid={`pricing.primary_button.${i + 1}`}
                     >
-                      Book Now
-                    </Button>
+                      <Button className="w-full rounded-full bg-accent hover:bg-accent/90 text-accent-foreground">
+                        Call to Book
+                      </Button>
+                    </a>
                   </CardFooter>
                 </Card>
               </motion.div>
@@ -650,265 +608,17 @@ export default function App() {
         </div>
       </section>
 
-      {/* Contact */}
-      <section id="contact" className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl font-display font-bold mb-4">
-              Get In Touch
-            </h2>
-            <p className="text-muted-foreground text-lg">
-              Ready to make your event unforgettable? Contact us today!
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-            {/* Form */}
-            <motion.div
-              initial={{ opacity: 0, x: -24 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <Card className="shadow-card">
-                <CardHeader>
-                  <CardTitle className="font-display">
-                    Send an Inquiry
-                  </CardTitle>
-                  <CardDescription>
-                    Fill out the form and we'll get back to you within 24 hours.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <form
-                    onSubmit={handleSubmit}
-                    className="space-y-4"
-                    data-ocid="contact.panel"
-                  >
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div className="space-y-1.5">
-                        <Label htmlFor="name">Name *</Label>
-                        <Input
-                          id="name"
-                          value={form.name}
-                          onChange={(e) =>
-                            setForm({ ...form, name: e.target.value })
-                          }
-                          placeholder="Your name"
-                          required
-                          data-ocid="contact.input"
-                        />
-                      </div>
-                      <div className="space-y-1.5">
-                        <Label htmlFor="email">Email *</Label>
-                        <Input
-                          id="email"
-                          type="email"
-                          value={form.email}
-                          onChange={(e) =>
-                            setForm({ ...form, email: e.target.value })
-                          }
-                          placeholder="your@email.com"
-                          required
-                          data-ocid="contact.input"
-                        />
-                      </div>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div className="space-y-1.5">
-                        <Label htmlFor="eventDate">Event Date</Label>
-                        <Input
-                          id="eventDate"
-                          type="date"
-                          value={form.eventDate}
-                          onChange={(e) =>
-                            setForm({ ...form, eventDate: e.target.value })
-                          }
-                          data-ocid="contact.input"
-                        />
-                      </div>
-                      <div className="space-y-1.5">
-                        <Label htmlFor="guests">Est. Guests</Label>
-                        <Input
-                          id="guests"
-                          type="number"
-                          value={form.guests}
-                          onChange={(e) =>
-                            setForm({ ...form, guests: e.target.value })
-                          }
-                          placeholder="100"
-                          min="1"
-                          data-ocid="contact.input"
-                        />
-                      </div>
-                    </div>
-                    <div className="space-y-1.5">
-                      <Label>Event Type *</Label>
-                      <Select
-                        value={form.eventType}
-                        onValueChange={(v) =>
-                          setForm({ ...form, eventType: v as EventType })
-                        }
-                      >
-                        <SelectTrigger data-ocid="contact.select">
-                          <SelectValue placeholder="Select event type" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="Wedding">Wedding</SelectItem>
-                          <SelectItem value="Corporate">Corporate</SelectItem>
-                          <SelectItem value="Birthday">
-                            Birthday Party
-                          </SelectItem>
-                          <SelectItem value="Prom">
-                            Prom / School Event
-                          </SelectItem>
-                          <SelectItem value="Other">Other</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    <div className="space-y-1.5">
-                      <Label htmlFor="message">Message</Label>
-                      <Textarea
-                        id="message"
-                        value={form.message}
-                        onChange={(e) =>
-                          setForm({ ...form, message: e.target.value })
-                        }
-                        placeholder="Tell us about your event..."
-                        rows={4}
-                        data-ocid="contact.textarea"
-                      />
-                    </div>
-                    <Button
-                      type="submit"
-                      className="w-full rounded-full bg-accent hover:bg-accent/90 text-accent-foreground"
-                      data-ocid="contact.submit_button"
-                    >
-                      Send Inquiry
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            {/* Contact info */}
-            <motion.div
-              initial={{ opacity: 0, x: 24 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="flex flex-col gap-6"
-            >
-              <div>
-                <h3 className="text-2xl font-display font-bold mb-6">
-                  Contact Information
-                </h3>
-                <div className="space-y-4">
-                  <a
-                    href="tel:5635083418"
-                    className="flex items-center gap-4 group"
-                  >
-                    <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
-                      <Phone className="w-5 h-5 text-accent" />
-                    </div>
-                    <div>
-                      <div className="font-semibold">Phone</div>
-                      <div className="text-muted-foreground">563-508-3418</div>
-                    </div>
-                  </a>
-                  <a
-                    href="mailto:kevin@masterdjonline.com"
-                    className="flex items-center gap-4 group"
-                  >
-                    <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
-                      <Mail className="w-5 h-5 text-accent" />
-                    </div>
-                    <div>
-                      <div className="font-semibold">Email</div>
-                      <div className="text-muted-foreground">
-                        kevin@masterdjonline.com
-                      </div>
-                    </div>
-                  </a>
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">
-                      <MapPin className="w-5 h-5 text-accent" />
-                    </div>
-                    <div>
-                      <div className="font-semibold">Location</div>
-                      <div className="text-muted-foreground">
-                        Bettendorf, Iowa
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <h4 className="font-semibold mb-3">Follow Us</h4>
-                <div className="flex gap-3">
-                  <a
-                    href="https://facebook.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-colors"
-                    data-ocid="contact.link"
-                  >
-                    <SiFacebook className="w-5 h-5" />
-                  </a>
-                  <a
-                    href="https://instagram.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-colors"
-                    data-ocid="contact.link"
-                  >
-                    <SiInstagram className="w-5 h-5" />
-                  </a>
-                </div>
-              </div>
-
-              <Card className="bg-accent text-accent-foreground shadow-glow">
-                <CardContent className="pt-6">
-                  <h4 className="font-display font-bold text-lg mb-2">
-                    Ready to Book?
-                  </h4>
-                  <p className="text-accent-foreground/80 text-sm mb-4">
-                    Contact us today to check availability for your event date.
-                    We book up fast!
-                  </p>
-                  <Button
-                    variant="secondary"
-                    className="rounded-full w-full font-semibold"
-                    onClick={() => window.scrollTo({ top: 0 })}
-                    data-ocid="contact.secondary_button"
-                  >
-                    Call Now: 563-508-3418
-                  </Button>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
       {/* Footer */}
       <footer className="bg-muted/50 border-t py-12">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             {/* Brand */}
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <img
-                  src="/assets/uploads/quadcity-green-1.png"
+                  src="/assets/uploads/quadcity-green-019d20ea-5b75-7125-899a-e48053916fed-1.png"
                   alt="Quad City Booth Logo"
-                  className="h-8 w-auto bg-transparent"
+                  className="h-10 w-auto max-w-[160px] object-contain"
                 />
               </div>
               <p className="text-muted-foreground text-sm mb-4">
@@ -956,37 +666,27 @@ export default function App() {
               </ul>
             </div>
 
-            {/* Booths */}
+            {/* Contact info */}
             <div>
-              <h4 className="font-semibold mb-4">Our Booths</h4>
-              <ul className="space-y-2">
-                {booths.map((b) => (
-                  <li key={b.name}>
-                    <button
-                      type="button"
-                      onClick={() => handleNavClick("#booths")}
-                      className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
-                      data-ocid="footer.link"
-                    >
-                      <ChevronRight className="w-3 h-3" />
-                      {b.name}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Contact */}
-            <div>
-              <h4 className="font-semibold mb-4">Contact Us</h4>
+              <h4 className="font-semibold mb-4">Get In Touch</h4>
               <ul className="space-y-3">
                 <li className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Phone className="w-4 h-4" />
-                  563-508-3418
+                  <a
+                    href="tel:5635083418"
+                    className="hover:text-foreground transition-colors"
+                  >
+                    563-508-3418
+                  </a>
                 </li>
                 <li className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Mail className="w-4 h-4" />
-                  kevin@masterdjonline.com
+                  <a
+                    href="mailto:kevin@masterdjonline.com"
+                    className="hover:text-foreground transition-colors"
+                  >
+                    kevin@masterdjonline.com
+                  </a>
                 </li>
                 <li className="flex items-center gap-2 text-sm text-muted-foreground">
                   <MapPin className="w-4 h-4" />
