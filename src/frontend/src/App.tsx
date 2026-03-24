@@ -23,7 +23,7 @@ import {
   X,
 } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { SiFacebook, SiInstagram } from "react-icons/si";
 
 const navLinks = [
@@ -156,14 +156,7 @@ const portfolioStats = [
 ];
 
 export default function App() {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
@@ -176,7 +169,7 @@ export default function App() {
 
       {/* Header */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-white/95 backdrop-blur-md shadow-md" : "bg-transparent"}`}
+        className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md"
         data-ocid="header.panel"
       >
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
@@ -187,7 +180,7 @@ export default function App() {
             data-ocid="nav.link"
           >
             <img
-              src="/assets/uploads/quadcity-green-019d20ea-5b75-7125-899a-e48053916fed-1.png"
+              src="/assets/uploads/untitled_design_1-019d2133-7233-745b-ac19-eb31e9fab9af-1.png"
               alt="Quad City Booth Logo"
               className="h-12 w-auto max-w-[200px] object-contain"
             />
@@ -203,7 +196,7 @@ export default function App() {
                 type="button"
                 key={link.href}
                 onClick={() => handleNavClick(link.href)}
-                className="text-sm font-medium text-foreground/70 hover:text-foreground transition-colors"
+                className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
                 data-ocid="nav.link"
               >
                 {link.label}
@@ -241,7 +234,7 @@ export default function App() {
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              className="md:hidden bg-white/98 backdrop-blur-md border-b overflow-hidden"
+              className="md:hidden bg-white border-b overflow-hidden"
             >
               <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
                 {navLinks.map((link) => (
@@ -249,7 +242,7 @@ export default function App() {
                     type="button"
                     key={link.href}
                     onClick={() => handleNavClick(link.href)}
-                    className="text-left text-sm font-medium py-2 text-foreground/70 hover:text-foreground transition-colors"
+                    className="text-left text-sm font-medium py-2 text-foreground/80 hover:text-foreground transition-colors"
                     data-ocid="nav.link"
                   >
                     {link.label}
@@ -616,7 +609,7 @@ export default function App() {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <img
-                  src="/assets/uploads/quadcity-green-019d20ea-5b75-7125-899a-e48053916fed-1.png"
+                  src="/assets/uploads/untitled_design_1-019d2133-7233-745b-ac19-eb31e9fab9af-1.png"
                   alt="Quad City Booth Logo"
                   className="h-10 w-auto max-w-[160px] object-contain"
                 />
