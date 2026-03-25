@@ -585,12 +585,12 @@ export default function App() {
                   </CardContent>
                   <CardFooter>
                     <a
-                      href="tel:5635083418"
+                      href="mailto:kevin@masterdjonline.com"
                       className="w-full"
                       data-ocid={`pricing.primary_button.${i + 1}`}
                     >
                       <Button className="w-full rounded-full bg-accent hover:bg-accent/90 text-accent-foreground">
-                        Call to Book
+                        Book Now
                       </Button>
                     </a>
                   </CardFooter>
